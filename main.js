@@ -513,7 +513,7 @@ define(['platform', 'game', 'vector', 'staticcollidable', 'linesegment', 'editor
                 var friction = onground ? 0.5 : 0.98;
                 var control = onground ? 0.3 : 0.02;
                 this.velocity.x = this.velocity.x * friction
-                                + slide(g.keys.left||g.keys.a,g.keys.right||g.keys.d) * control;
+                                + slide(g.keys.left||g.keys.a||g.keys.q,g.keys.right||g.keys.d) * control;
                 this.velocity.y += 0.02;
 
                 var speed = Math.min(0.8,this.velocity.length());
@@ -1572,7 +1572,7 @@ define(['platform', 'game', 'vector', 'staticcollidable', 'linesegment', 'editor
             }
 
             function keydown(key) {
-                if (key === 'x' || key === 'w' || key === 'space') {
+                if (key === 'x' || key === 'w' || key === 'space' || key === 'z') {
                     player.jump();
                 } else if (key === 'r') {
                     var closest = player.checkpoints.reduce(function(closest,checkpoint) {
