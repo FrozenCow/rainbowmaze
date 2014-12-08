@@ -1501,14 +1501,16 @@ define(['platform', 'game', 'vector', 'staticcollidable', 'linesegment', 'editor
 
             var targetChunk = getChunkAt(magnifier.targetx,magnifier.targety);
 
-            // var  Math.floor((magnifier.r*magnifier.zoomx) / Chunk.width);
-            var backgroundG = new Graphics(backgroundContext);
-            // backgroundG.fillStyle('black');
-            backgroundG.context.clearRect((targetChunk.x-3)*Chunk.width,(targetChunk.y-3)*Chunk.height,7*Chunk.width,7*Chunk.height);
-            getChunks(targetChunk.x-3,targetChunk.y-3,7,7).forEach(function(chunk) {
-                chunk.draw(g);
-                chunk.draw(backgroundG);
-            });
+            if (targetChunk) {
+                // var  Math.floor((magnifier.r*magnifier.zoomx) / Chunk.width);
+                var backgroundG = new Graphics(backgroundContext);
+                // backgroundG.fillStyle('black');
+                backgroundG.context.clearRect((targetChunk.x-3)*Chunk.width,(targetChunk.y-3)*Chunk.height,7*Chunk.width,7*Chunk.height);
+                getChunks(targetChunk.x-3,targetChunk.y-3,7,7).forEach(function(chunk) {
+                    chunk.draw(g);
+                    chunk.draw(backgroundG);
+                });
+            }
 
 
             player.draw(new Graphics(trailContext));
