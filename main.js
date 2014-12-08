@@ -68,29 +68,29 @@ define(['platform', 'game', 'vector', 'staticcollidable', 'linesegment', 'editor
         //  return me;
         // })();
         // Auto-refresh
-        (function() {
-         var timeout = setTimeout(function() {
-             document.location.reload(true);
-         }, 3000);
-         g.once('keydown',function() {
-             disable();
-         });
-         g.once('mousemove',function() {
-             disable();
-         });
-         g.chains.draw.unshift(draw);
-         function draw(g,next) {
-             // console.log(game.chains.draw.slice(0));
-             g.fillStyle('#ff0000');
-             g.fillCircle(game.width,0,30);
-             g.fillStyle('black');
-             next(g);
-         }
-         function disable() {
-             clearTimeout(timeout);
-             g.chains.draw.remove(draw);
-         }
-        })();
+        // (function() {
+        //  var timeout = setTimeout(function() {
+        //      document.location.reload(true);
+        //  }, 3000);
+        //  g.once('keydown',function() {
+        //      disable();
+        //  });
+        //  g.once('mousemove',function() {
+        //      disable();
+        //  });
+        //  g.chains.draw.unshift(draw);
+        //  function draw(g,next) {
+        //      // console.log(game.chains.draw.slice(0));
+        //      g.fillStyle('#ff0000');
+        //      g.fillCircle(game.width,0,30);
+        //      g.fillStyle('black');
+        //      next(g);
+        //  }
+        //  function disable() {
+        //      clearTimeout(timeout);
+        //      g.chains.draw.remove(draw);
+        //  }
+        // })();
         // Camera
         // (function() {
         //     game.camera = new Vector(0, 0);
